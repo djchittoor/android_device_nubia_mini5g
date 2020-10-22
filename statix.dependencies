@@ -1,0 +1,8 @@
+[  
+   {
+      "repository": "nullbytepl/device_tadiphone-fw",
+      "target_path": "device/tadiphone-fw",
+      "branch": "ten",
+      "remote": "gitlab"
+   }
+]

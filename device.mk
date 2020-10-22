@@ -10,6 +10,10 @@ $(call inherit-product-if-exists, vendor/nubia/TP1803/TP1803-vendor.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+# Platform
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := msmnile
+
 # Firmware
 $(call inherit-product, device/tadiphone-fw/firmware.mk)
 

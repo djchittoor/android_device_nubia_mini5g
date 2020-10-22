@@ -3,21 +3,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common PixelExperience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-TARGET_GAPPS_ARCH := arm64
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_INCLUDE_WIFI_EXT := true
-TARGET_INCLUDE_STOCK_ARCORE := false
-TARGET_SUPPORTS_GOOGLE_RECORDER := true
+# Inherit some common StatiX stuff.
+$(call inherit-product, vendor/statix/config/common.mk)
+$(call inherit-product, vendor/statix/config/gsm.mk)
 
 # Inherit from TP1803 device
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
+$(call inherit-product, device/nubia/TP1803/device.mk)
 
 PRODUCT_BRAND := Nubia
 PRODUCT_DEVICE := TP1803
 PRODUCT_MANUFACTURER := Nubia
-PRODUCT_NAME := aosp_TP1803
+PRODUCT_NAME := statix_TP1803
 PRODUCT_MODEL := Mini 5G
 
 PRODUCT_GMS_CLIENTID_BASE := android-nubia

@@ -40,18 +40,13 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
-TARGET_PREBUILT_KERNEL := device/tadiphone-fw/kernel
-BOARD_PREBUILT_DTBIMAGE_DIR := device/tadiphone-fw/
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-  TARGET_KERNEL_CONFIG := TP1803_user_defconfig
-  TARGET_KERNEL_CLANG_COMPILE := true
-  TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-  TARGET_KERNEL_SOURCE := kernel/nubia/sm8150
-endif
+TARGET_KERNEL_CONFIG := tp1803_defconfig
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_KERNEL_SOURCE := kernel/nubia/sm8150
 
 # Platform
-BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
 
@@ -86,6 +81,9 @@ WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 
 # Display
 TARGET_USES_HWC2 := true
+
+# DTBO
+BOARD_KERNEL_SEPARATED_DTBO := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -133,17 +131,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # Sepolicy
+-include device/qcom/sepolicy/SEPolicy.mk
+
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-    device/qcom/sepolicy/generic/private \
-    device/qcom/sepolicy/qva/private
-
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
-    device/qcom/sepolicy/generic/public/attribute \
-    device/qcom/sepolicy/generic/public \
-    device/qcom/sepolicy/qva/public/attribute \
-    device/qcom/sepolicy/qva/public
 
 # Treble
 BOARD_VNDK_VERSION := current
