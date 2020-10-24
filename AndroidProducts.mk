@@ -1,2 +1,0 @@
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/statix_TP1803.mk

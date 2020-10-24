@@ -5,21 +5,16 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/nubia/TP1803/TP1803-vendor.mk)
+$(call inherit-product-if-exists, vendor/nubia/mini5g/mini5g-vendor.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Platform
-PRODUCT_USES_QCOM_HARDWARE := true
-PRODUCT_BOARD_PLATFORM := msmnile
-
 # Firmware
 $(call inherit-product, device/tadiphone-fw/firmware.mk)
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2340
-TARGET_SCREEN_WIDTH := 1080
+# Platform
+TARGET_BOARD_PLATFORM := msmnile
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -46,8 +41,6 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0 \
     libhidltransport \
     libhwbinder
 
@@ -67,16 +60,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
+# QTI Components
+TARGET_COMMON_QTI_COMPONENTS := \
+    bt \
+    display \
+    gps \
+    telephony \
+    wfd
+
 # Telephony
 PRODUCT_PACKAGES += \
-    telephony-ext \
     qti-telephony-utils \
     qti_telephony_utils.xml \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # TextClassifier
 PRODUCT_PACKAGES += \
@@ -84,11 +81,3 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
-
-# Wallpapers
-PRODUCT_PACKAGES += \
-    PixelLiveWallpaperPrebuilt
-
-# WiFi Display
-PRODUCT_PACKAGES += \
-    libnl

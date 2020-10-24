@@ -1,41 +1,45 @@
+# Bluetooth
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.bluetooth.library_name=libbluetooth_qti.so
+
 # Camera
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # CNE and DPM
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.cne.feature=1
 
 # Data Modules
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
 # Display
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.sf.lcd_density=480
 
 # Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1
 
 # GPS
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.overlay.izat.optin=rro
 
 # IOP
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.iop.enable_uxe=1 \
     vendor.perf.iop_v3.enable=true
 
 # Media
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.mm.enable.qcom_parser=63963135
 
 # RIL
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     DEVICE_PROVISIONED=1 \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ril.subscription.types=NV,RUIM \
@@ -46,13 +50,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=1
 
 # Sensors
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.sensors.enable.mag_filter=true
 
 # Subsystem ramdump
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.ssr.restart_level=ALL_ENABLE
-
-# USAP
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.device_config.runtime_native.usap_pool_enabled=true
