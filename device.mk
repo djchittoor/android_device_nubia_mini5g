@@ -7,9 +7,6 @@
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Firmware
-$(call inherit-product, device/tadiphone-fw/firmware.mk)
-
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
 
