@@ -76,6 +76,3 @@ PRODUCT_PACKAGES += \
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
-
-# VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
