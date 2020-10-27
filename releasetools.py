@@ -19,19 +19,11 @@ import re
 
 def FullOTA_InstallEnd(info):
   OTA_InstallEnd(info)
-  OTA_UpdateFirmware(info)
   return
 
 def IncrementalOTA_InstallEnd(info):
   OTA_InstallEnd(info)
-  OTA_UpdateFirmware(info)
   return
-
-def OTA_UpdateFirmware(info):
-  info.script.AppendExtra('package_extract_file("install/firmware-update/vendor.img", "/dev/block/bootdevice/by-name/vendor");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/modem.img", "/dev/block/bootdevice/by-name/modem");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/tz.mbn", "/dev/block/bootdevice/by-name/tz");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/km4.mbn", "/dev/block/bootdevice/by-name/keymaster");')
 
 def AddImage(info, basename, dest):
   name = basename
@@ -39,7 +31,17 @@ def AddImage(info, basename, dest):
   common.ZipWriteStr(info.output_zip, name, data)
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
 
+def AddImageRadio(info, basename, dest):
+  name = basename
+  data = info.input_zip.read("RADIO/" + basename)
+  common.ZipWriteStr(info.output_zip, name, data)
+  info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
+
 def OTA_InstallEnd(info):
   info.script.Print("Patching firmware images...")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
+  AddImageRadio(info, "vendor.img", "/dev/block/bootdevice/by-name/vendor")
+  AddImageRadio(info, "modem.img", "/dev/block/bootdevice/by-name/modem")
+  AddImageRadio(info, "tz.mbn", "/dev/block/bootdevice/by-name/tz")
+  AddImageRadio(info, "km4.mbn", "/dev/block/bootdevice/by-name/keymaster")
   return
