@@ -15,10 +15,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
-# Display
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.sf.lcd_density=480
-
 # Graphics
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.sf.enable_hwc_vds=1 \
