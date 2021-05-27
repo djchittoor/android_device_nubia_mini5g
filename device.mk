@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
     ims_ext_common.xml
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:system/etc/permissions/android.hardware.telephony.ims.xml
+    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.ims.xml
 
 # Input
 PRODUCT_PACKAGES += \
@@ -51,7 +51,7 @@ PRODUCT_PACKAGES += \
     AOSPAMini5GAuxiliaryKeyHandler
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
 
 # Net
 PRODUCT_PACKAGES += \
