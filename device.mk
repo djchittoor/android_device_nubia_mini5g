@@ -72,7 +72,3 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils.xml \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml
-
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
