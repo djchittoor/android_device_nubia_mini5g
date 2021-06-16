@@ -130,7 +130,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware_mnt:/firmware
 
 # Properties
-TARGET_SCREEN_DENSITY := 480
+TARGET_SCREEN_DENSITY := 440
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
