@@ -48,6 +48,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.ims.xml
 
+# Init scripts
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/rootdir/etc/init.nubia.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/hw/init.nubia.rc
+
 # Input
 PRODUCT_PACKAGES += \
     AuxiliaryKeyHandler \
